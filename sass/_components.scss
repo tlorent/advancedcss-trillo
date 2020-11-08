@@ -112,6 +112,70 @@
     border-radius: 50%;
     margin-right: 1rem;
   }
+
+  &__user {
+    position: relative;
+  }
+
+  &__menu {
+    list-style: none;
+    position: absolute;
+    right: 0;
+    flex-direction: column;
+    top: 7rem;
+    width: 100%;
+    height: initial;
+    display: none;
+    background-color: #fff;
+  }
+
+  &__menu-item {
+    width: 100%;
+    position: relative;
+    padding: 1rem 1.5rem;
+    margin: 0;
+  }
+
+  &__menu-item span {
+    z-index: 10;
+  }
+
+  &__menu-item:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color-primary);
+    transform: scaleY(0);
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+      background-color 0.1s;
+  }
+
+  &__menu-item:hover::before {
+    transform: scaleY(1);
+    width: 100%;
+  }
+
+  &__menu-item-link:link,
+  &__menu-item-link:visited {
+    text-decoration: none;
+    position: relative;
+    z-index: 10;
+    color: var(--color-grey-dark-1);
+    transition: color 0.2s ease-in-out 0.2s;
+
+    display: flex;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  &__user:hover &__menu {
+    display: flex;
+  }
 }
 
 // SIDE NAV
